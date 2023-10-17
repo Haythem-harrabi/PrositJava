@@ -63,7 +63,7 @@ public class Zoo {
         System.out.println("city :"+city+" name :"+name);
         for (int i=0;i<animals.length;i++) {
             if (animals[i]!=null)
-            System.out.println(animals[i].getName());
+                System.out.println(animals[i].getName());
         }
     }
 
@@ -74,7 +74,7 @@ public class Zoo {
           //str+=animals[i]+"\n";
    for (Animal a:animals) {
        if(a!=null)
-       str += a + "\n";
+        str += a + "\n";
    }
         return "city :"+city+" name :"+name+"\n"+str;
     }
@@ -155,8 +155,8 @@ public class Zoo {
        float max=0;
         for (int i=0;i<this.AquaticAnimals.length;i++){
             if (AquaticAnimals[i]!=null&&AquaticAnimals[i].getClass().equals(Penguin.class)){
-                if (AquaticAnimals[i].getSwimmingDepth()>max)
-                    max= AquaticAnimals[i].getSwimmingDepth();}
+                if (((Penguin)AquaticAnimals[i]).getSwimmingD()>max)
+                    max= ((Penguin)AquaticAnimals[i]).getSwimmingD();}
         }
         return max;
     }
@@ -167,9 +167,9 @@ public class Zoo {
         int p=0;
         for (int i=0;i<this.AquaticAnimals.length;i++){
             if (AquaticAnimals[i]!=null){
-                if (AquaticAnimals[i].getClass().equals(Penguin.class))
+                if (AquaticAnimals[i] instanceof Penguin)
                     p++;
-                else if (AquaticAnimals[i].getClass().equals(Dolphin.class)) {
+                else if (AquaticAnimals[i] instanceof Dolphin) {
                     d++;
                 }
             }

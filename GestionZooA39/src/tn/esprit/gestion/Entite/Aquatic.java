@@ -41,9 +41,7 @@ public Aquatic(){
 
     public abstract void swim() ;
 
-public float getSwimmingDepth(){
-        return ((Penguin) this).getSwimmingD();
-}
+
 
 
     public boolean equals(Aquatic aq){
