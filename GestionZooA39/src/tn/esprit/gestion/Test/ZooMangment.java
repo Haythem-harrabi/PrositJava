@@ -2,10 +2,10 @@ package tn.esprit.gestion.Test;
 
 import tn.esprit.gestion.Entite.Animal;
 import tn.esprit.gestion.Entite.Zoo;
+import tn.esprit.gestion.Entite.ZooFullException;
 
 public class ZooMangment {
-    public static void main(String [] arg)
-    {
+    public static void main(String [] arg) throws Exception {
 
         Animal a1=new Animal();
        System.out.println("family :"+a1.getFamily());
@@ -26,33 +26,33 @@ public class ZooMangment {
         System.out.println(a1.toString());
         System.out.println(a1);
 
-        System.out.println("tn.esprit.gestion.Entite.Zoo");
-        Zoo zo1=new Zoo(); //name=null,nbrCaages=0,
+//        System.out.println("tn.esprit.gestion.Entite.Zoo");
+//        Zoo zo1=new Zoo(); //name=null,nbrCaages=0,
 
-        Zoo z2=new Zoo(12,"frigua","bouf");
-        System.out.println(z2.addAnimal(a2));
-        System.out.println(z2.addAnimal(a1));
-        System.out.println(z2.addAnimal(a2));
-        System.out.println(z2.addAnimal(a2));
+        Zoo z2=new Zoo(3,"frigua","bouf");
+       z2.addAnimal(a2);
+        z2.addAnimal(a1);
+        z2.addAnimal(a2);
+       z2.addAnimal(a2);
 
-        z2.display();
-        System.out.println("toString");
-        System.out.println(z2);
-
-        System.out.println("remove");
-        System.out.println(z2.removeAnimal(a2));
-        System.out.println(z2);
-        System.out.println("comparer zoo");
-
-        System.out.println(zo1.comparerZoo(z2));
-
-        Zoo z3=new Zoo();
-        z3.addAnimal(a1);
-        z3.addAnimal(a2);
-
-        System.out.println(Zoo.comparerZoo(z2,z3));
-
-        System.out.println("Le nombre "+Zoo.nbTotal());
+//        z2.display();
+//        System.out.println("toString");
+//        System.out.println(z2);
+//
+//        System.out.println("remove");
+//        System.out.println(z2.removeAnimal(a2));
+//        System.out.println(z2);
+//        System.out.println("comparer zoo");
+//
+//        System.out.println(zo1.comparerZoo(z2));
+//
+//        Zoo z3=new Zoo();
+//        z3.addAnimal(a1);
+//        z3.addAnimal(a2);
+//
+//        System.out.println(Zoo.comparerZoo(z2,z3));
+//
+//        System.out.println("Le nombre "+Zoo.nbTotal());
 
     }
 }

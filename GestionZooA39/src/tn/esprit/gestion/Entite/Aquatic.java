@@ -44,12 +44,16 @@ public Aquatic(){
 
 
 
-    public boolean equals(Aquatic aq){
-    if (this.name==aq.name && this.age==aq.age && this.habitat==aq.habitat)
-        return true;
-    else
-        return false;
-
+@Override
+    public boolean equals(Object o){
+    if (o instanceof Aquatic) {
+        Aquatic aq = (Aquatic) o;
+        if (this.name == aq.name && this.age == aq.age && this.habitat == aq.habitat)
+            return true;
+        else
+            return false;
+    }
+    return false;
 }
 
 

@@ -1,5 +1,5 @@
 package tn.esprit.gestion.Entite;
-
+import java.lang.Exception;
 public class Zoo {
 
    private String name,city;
@@ -7,7 +7,47 @@ public class Zoo {
   private  int nbrAnimal=0;
    private Animal [] animals;
 
-   private Aquatic [] AquaticAnimals = new Aquatic [10];
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
+    }
+
+    public void setNbrCages(int nbrCages) {
+        this.nbrCages = nbrCages;
+    }
+
+    public int getNbrAnimal() {
+        return nbrAnimal;
+    }
+
+    public void setNbrAnimal(int nbrAnimal) {
+        this.nbrAnimal = nbrAnimal;
+    }
+
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public static int getNbTotalAn() {
+        return nbTotalAn;
+    }
+
+    public static void setNbTotalAn(int nbTotalAn) {
+        Zoo.nbTotalAn = nbTotalAn;
+    }
+
+    private Aquatic [] AquaticAnimals = new Aquatic [10];
 
 
 
@@ -36,20 +76,25 @@ public class Zoo {
         animals=new Animal[25];
     }
 
-    public boolean addAnimal(Animal a)
+    public void addAnimal(Animal a) throws Exception
     {
-        if(searchAnimal(a)!=-1)
-            return false;
+
+            if (this.isFull()){
+                throw new ZooFullException();
+            }
+            else if (a.getAge()<0) {
+                throw new InvalidAgeException();
+
+            } else {
+            this.animals[this.nbrAnimal] = a;
+            this.nbrAnimal++;
+            nbTotalAn++;
+            }
+            System.out.println(this.getNbrAnimal());
+
+        }
 
 
-        if(!isFull()) return false;
-        animals[nbrAnimal]=a;
-        nbrAnimal++;
-        nbTotalAn++;
-            System.out.println(nbrAnimal);
-
-        return true;
-    }
 
 
     public static int nbTotal()
@@ -85,7 +130,7 @@ public class Zoo {
         for(int i=0;i<nbrAnimal;i++)
         {
 
-            if(animals[i].getName()==a.getName())
+            if(animals[i].equals(a))
                 return i;
         }
         return -1;
@@ -123,7 +168,7 @@ public class Zoo {
 
     public boolean isFull()
     {
-        if(nbrAnimal==animals.length)
+        if(this.getNbrAnimal()==this.getAnimals().length)
             return true;
         return false;
     }
